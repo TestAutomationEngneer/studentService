@@ -15,7 +15,7 @@ import java.util.Optional;
 
 import static io.micronaut.http.MediaType.APPLICATION_JSON;
 
-//@Secured(SecurityRule.IS_ANONYMOUS)
+
 @Controller(value = "/student")
 public class StudentController {
 
