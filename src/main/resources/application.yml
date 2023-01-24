@@ -35,3 +35,11 @@ jpa:
       hibernate:
         hbm2ddl:
           auto: none
+  entity-scan:
+    packages: 'com.example.model'
+training:
+  name: darek
+  age: ${random.int[1,99]}
+  port: ${random.port}
+  uuid: ${random.uuid}
+  zagadka: zagadka zimowa

@@ -1,7 +1,9 @@
 package com.example.controller;
 
-import com.example.model.Student;
+import com.example.Student;
 import com.example.service.StudentService;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -55,19 +57,19 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
-//    @Post("/create")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Operation(summary = "Save student", operationId = "save_student", description = "desc student save")
-//    @ApiResponse(
-//            responseCode = "201",
-//            content = @Content(
-//                    mediaType = APPLICATION_JSON,
-//                    schema = @Schema(implementation = Student.class, type = "array")
-//            )
-//    )
-//    public HttpResponse<Student> createStudent(@Body Student student) {
-//                studentService.saveStudent(student);
-//        return HttpResponse.status(HttpStatus.CREATED).body(student);
-//    }
+    @Post("/create")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Save student", operationId = "save_student", description = "desc student save")
+    @ApiResponse(
+            responseCode = "201",
+            content = @Content(
+                    mediaType = APPLICATION_JSON,
+                    schema = @Schema(implementation = Student.class, type = "array")
+            )
+    )
+    public HttpResponse<Student> createStudent(@Body Student student) {
+        Student savedStudent = studentService.saveStudent(student);
+        return HttpResponse.status(HttpStatus.CREATED).body(savedStudent);
+    }
 
 }
