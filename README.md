@@ -24,9 +24,9 @@ API
 
 POST
 {
-"id": 1,
-"firstName": "Angelina",
-"lastName": "Jolie"
+"id": 5,
+"firstname": "Tom",
+"lastname": "Cruize"
 }
 
 1. GET
