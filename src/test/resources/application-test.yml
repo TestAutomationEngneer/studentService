@@ -1,4 +1,9 @@
-
+datasources:
+  default:
+#    url: jdbc:tc:postgresql:latest:///postgres?TC_DEAMON=true
+    url: jdbc:tc:postgresql:latest:///postgres?TC_INITSCRIPT=file:src/test/resources/init-actor-testdata.sql?TC_DAEMON=true
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    minimum-idle: 5
 jpa:
   default:
     properties:

@@ -1,11 +1,18 @@
 package com.example.service;
 
 import com.example.Actor;
+import com.example.DBConector.DBConnector;
+import com.example.DBConector.PostgresTestContainer;
+import com.example.containers.PostgresContainer;
 import com.example.repository.ActorRepository;
+import io.micronaut.test.annotation.MockBean;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,9 +20,11 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Slf4j
+
 @MicronautTest(environments = "test")
+@Slf4j
 class ActorServiceTest {
+
 
     @Inject
     ActorRepository actorRepository;
@@ -35,7 +44,6 @@ class ActorServiceTest {
 
     @Test
     void shouldGetStudentByIdFromDB() {
-
         Long id = 1L;
         Optional<Actor> actualActor = actorRepository.findById(id);
         log.info(String.valueOf(actualActor));
