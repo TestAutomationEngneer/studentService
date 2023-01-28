@@ -5,14 +5,15 @@ docker run --rm -d --name pg -e "POSTGRES_PASSWORD=postgres" -e POSTGRES_DB=acto
 
 CREATE TABLE public.actor (
 id numeric PRIMARY KEY NULL,
-firstname varchar NULL,
-lastname varchar NULL
+firstname varchar NOT NULL,
+lastname varchar NOT NULL,
+rating numeric NOT NULL
 );
 
 
-INSERT INTO actor (id,firstname,lastname) VALUES (1, 'Brad', 'Pitt');
-INSERT INTO actor (id,firstname,lastname) VALUES (2, 'Angelina', 'Jolie');
-INSERT INTO actor (id,firstname,lastname) VALUES (3, 'Salma', 'Hayek');
+INSERT INTO actor (id,firstname,lastname,rating) VALUES (1, 'Brad', 'Pitt', 3);
+INSERT INTO actor (id,firstname,lastname,rating) VALUES (2, 'Angelina', 'Jolie', 1);
+INSERT INTO actor (id,firstname,lastname,rating) VALUES (3, 'Salma', 'Hayek', 2);
 
 select * from actor
 
