@@ -194,9 +194,11 @@
               <version>${micronaut.openapi.version}</version>
             </path>
           </annotationProcessorPaths>
+          <fork>true</fork>
           <compilerArgs>
             <arg>-Amicronaut.processing.group=com.example</arg>
             <arg>-Amicronaut.processing.module=StudentServiceMicronaut</arg>
+            <arg>-Amicronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop</arg>
           </compilerArgs>
         </configuration>
       </plugin>

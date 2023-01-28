@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import com.example.Student;
-import com.example.service.StudentService;
+import com.example.Actor;
+import com.example.service.ActorService;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
@@ -18,57 +18,57 @@ import java.util.Optional;
 import static io.micronaut.http.MediaType.APPLICATION_JSON;
 
 
-@Controller(value = "/student")
-public class StudentController {
+@Controller(value = "/actor")
+public class ActorController {
 
 
-     private final StudentService studentService;
+     private final ActorService actorService;
 
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
+    public ActorController(ActorService actorService) {
+        this.actorService = actorService;
     }
 
 
     @Get("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Students list", operationId = "list_students", description = "desc student list")
+    @Operation(summary = "Actors list", operationId = "actor_list", description = "desc actor list")
     @ApiResponse(
             responseCode = "200",
             content = @Content(
                     mediaType = APPLICATION_JSON,
-                    schema = @Schema(implementation = Student.class, type = "array")
+                    schema = @Schema(implementation = Actor.class, type = "array")
             )
     )
-    public List<Student> getAll() {
-        return  studentService.getAllStudents();
+    public List<Actor> getAll() {
+        return  actorService.getAllStudents();
     }
 
     @Get("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Single Student", operationId = "single_students", description = "desc student list")
+    @Operation(summary = "Single Actor", operationId = "single_actor", description = "desc actor list")
     @ApiResponse(
             responseCode = "200",
             content = @Content(
                     mediaType = APPLICATION_JSON,
-                    schema = @Schema(implementation = Student.class)
+                    schema = @Schema(implementation = Actor.class)
             )
     )
-    public Optional<Student> getStudentById(@PathVariable Long id) {
-        return studentService.getStudentById(id);
+    public Optional<Actor> getActorById(@PathVariable Long id) {
+        return actorService.getActorById(id);
     }
 
     @Post("/create")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Save student", operationId = "save_student", description = "desc student save")
+    @Operation(summary = "Save actor", operationId = "save_actor", description = "desc actor save")
     @ApiResponse(
             responseCode = "201",
             content = @Content(
                     mediaType = APPLICATION_JSON,
-                    schema = @Schema(implementation = Student.class, type = "array")
+                    schema = @Schema(implementation = Actor.class, type = "array")
             )
     )
-    public HttpResponse<Student> createStudent(@Body Student student) {
-        Student savedStudent = studentService.saveStudent(student);
+    public HttpResponse<Actor> createActor(@Body Actor student) {
+        Actor savedStudent = actorService.saveActor(student);
         return HttpResponse.status(HttpStatus.CREATED).body(savedStudent);
     }
 

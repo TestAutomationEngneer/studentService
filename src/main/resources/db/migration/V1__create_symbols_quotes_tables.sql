@@ -1,13 +1,6 @@
-CREATE TABLE public.student (
+CREATE TABLE public.actor (
 	id numeric PRIMARY KEY NULL,
-	firstname varchar NULL,
-	lastname varchar NULL
+	firstname varchar NOT NULL,
+	lastname varchar NOT NULL,
+	rating numeric NOT NULL
 );
-
-
-
---CREATE TABLE student(
---   id INT PRIMARY KEY     NOT NULL,
---   firstname           TEXT    NOT NULL,
---   lastname            TEXT     NOT NULL
---);

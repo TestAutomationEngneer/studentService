@@ -6,8 +6,10 @@ import io.swagger.v3.oas.annotations.info.*;
 
 @OpenAPIDefinition(
     info = @Info(
-            title = "Student Service Micronaut",
-            version = "1.0"
+            title = "Actor Service Micronaut",
+            version = "1.0",
+            description = "My API",
+            license = @License(name = "Apache 2.0", url = "https://actor.bar")
     )
 )
 public class Application {
