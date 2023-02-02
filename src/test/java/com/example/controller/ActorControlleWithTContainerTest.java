@@ -21,11 +21,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @MicronautTest(environments = "test")
 class ActorControlleWithTContainerTest {
 
-   // @Container
-    //private static final PostgreSQLContainer postgres = new PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
-     //       .withExposedPorts(5432);
+//    @Container
+//    private static final PostgreSQLContainer postgres = new PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
+//            .withExposedPorts(5432);
 
-    //private static final PostgreSQLContainer postgres = new PostgreSQLContainer.getPostgresSQLContainer();
+   // private static final PostgreSQLContainer postgres = new PostgreSQLContainer.getPostgresSQLContainer();
 
     @BeforeAll
     static void setUp() {
